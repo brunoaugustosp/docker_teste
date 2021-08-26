@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+
 # --------------------------BACKEND----------------------------------------
     backend:
         image: python
@@ -9,11 +10,25 @@ services:
         ports:
             - 5000:5000
         command: bash -c "cd /backend && pip install -r requirements.txt && flask run --host 0.0.0.0"
-# --------------------------FRONTEND COM NGINX----------------------------------------      
+# --------------------------FRONTEND ---------------------------------------      
     frontend:
         image: node
         volumes:
             - ./frontend:/frontend
+
         ports:
-            - 80:3000
-        command: bash -c "cd /frontend && npm start"
+            - 8080:3000
+        
+        working_dir: /frontend
+        command: bash -c "npm install && npm start"
+
+
+# --------------------------NGINX----------------------------------------   
+    # ngnix:
+    #     image: nginx
+    #     volumes:
+    #         - ./web:usr/share/nginx/html/
+    #     # CONFIGURAÇÔES PROXY
+    #         - ./nginx/default.conf:/etc/nginx/conf.d/default.conf/
+    #     ports:
+    #         - 80:80
