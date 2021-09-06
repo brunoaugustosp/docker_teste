@@ -7,12 +7,12 @@ import os
 app = Flask(__name__)
 
 
-@app.route("/api/teste", methods=["GET", "POST"])
+@app.route("/api", methods=["GET", "POST"])
 def hello():
     return jsonify({"print":"TESTE DE API GET"})
 
 
-@app.route("/")
+@app.route("/teste")
 def index():
     return jsonify({"print":"FUNCIONANDO!!"})
 
