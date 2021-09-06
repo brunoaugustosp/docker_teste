@@ -4,3 +4,5 @@ build:
 build:
   docker:
     web: /frontend/Dockerfile
+    volumes:
+      - ./frontend:/home/frontend
