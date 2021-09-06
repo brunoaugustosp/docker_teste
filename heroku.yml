@@ -3,6 +3,6 @@ build:
   docker:
     web: /backend/Dockerfile
 
-build:
-  docker:
-    web: /frontend/Dockerfile
+# build:
+#   docker:
+#     web: /frontend/Dockerfile
