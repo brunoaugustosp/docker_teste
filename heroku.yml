@@ -1,8 +1,6 @@
 build:
   docker:
-    web: /backend/Dockerfile
+    web: /frontend/Dockerfile
 build:
   docker:
-    web: /frontend/Dockerfile
-    volumes:
-      - ./frontend:/home/frontend
+    web: /backend/Dockerfile
