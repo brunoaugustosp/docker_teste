@@ -5,7 +5,7 @@ build:
     web: /frontend/Dockerfile
 
 
-build:
+release:
   docker:
     web: /backend/Dockerfile
 
