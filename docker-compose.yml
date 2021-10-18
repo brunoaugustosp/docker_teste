@@ -4,19 +4,28 @@ services:
 
 # --------------------------BACKEND----------------------------------------
     backend:
+        container_name: backend
         build: ./backend
         ports:
-            - 5000:5000
+            - 80:5000
+
+# --------------------------BACKEND----------------------------------------
+    # nginx:
+    #     build: ./nginx
+    #     container_name: nginx
+    #     restart: always
+    #     ports:
+    #     - "80:80"
 
 # --------------------------FRONTEND ---------------------------------------      
-    frontend:
-        # build: ./frontend
-        image: node
+    # frontend:
+    #     # build: ./frontend
+    #     image: node
 
-        volumes:
-            - ./frontend:/home/frontend
+    #     volumes:
+    #         - ./frontend:/home/frontend
     
-        command: bash -c "cd /home/frontend && npm run dev"
-        ports:
-            - 3000:3000
+    #     command: bash -c "cd /home/frontend && npm run dev"
+    #     ports:
+    #         - 3000:3000
 
