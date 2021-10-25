@@ -7,7 +7,7 @@ services:
         container_name: backend
         build: ./backend
         ports:
-            - 80:5000
+            - 5000:5000
 
 # --------------------------BACKEND----------------------------------------
     # nginx:
