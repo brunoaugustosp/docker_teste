@@ -13,5 +13,5 @@ EXPOSE 5000
 # ENTRYPOINT [ "python" ]
 
 # CMD ["app.py"]
-
+CMD playwright install
 CMD gunicorn --bind 0.0.0.0:5000 app:app  
