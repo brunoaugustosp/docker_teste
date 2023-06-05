@@ -1,17 +1,21 @@
+# Define a imagem base
 FROM python:alpine3.9
 
-
-COPY . /app
-
+# Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
-RUN pip3 install --upgrade pip
-RUN pip3 install -r requirements.txt
+# Copia o arquivo de requisitos para o diretório de trabalho
+COPY requirements.txt .
 
+# Instala as dependências
+RUN pip3 install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copia o código-fonte da aplicação para o diretório de trabalho
+COPY . .
+
+# Define a porta em que a aplicação irá escutar
 EXPOSE 5000
 
-# ENTRYPOINT [ "python" ]
-
-# CMD ["app.py"]
-
-CMD gunicorn --bind 0.0.0.0:5000 app:app  
+# Define o comando a ser executado quando o contêiner for iniciado
+CMD ["python", "app.py"]
